@@ -1,8 +1,6 @@
 {
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "send_data_to_aws.py"
-    }
+  "version": 2,
+  "builds": [
+    { "src": "send_data_to_aws.py", "use": "@vercel/python" }
   ]
 }
