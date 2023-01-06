@@ -13,7 +13,7 @@ s3 = boto3.client('s3',
                    # aws_session_token=keys.AWS_SESSION_TOKEN
                      )
 
-BUCKET_NAME='speed_testing_bucket_only_delet_it'
+BUCKET_NAME='speedtestingbucketonlydeletit'
 
 @app.route('/')  
 def home():
