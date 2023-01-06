@@ -7,9 +7,9 @@ app = Flask(__name__)
 from werkzeug.utils import secure_filename
 
 s3 = boto3.client('s3',
-                    aws_access_key_id=process.env.S3_ACCESS_KEY,
-                    aws_secret_access_key=process.env.S3_SECRET_KEY,
-                    aws_region=process.env.S3_REGION
+                    aws_access_key_id= process.env.S3_ACCESS_KEY,
+                    aws_secret_access_key= process.env.S3_SECRET_KEY,
+                    aws_region= process.env.S3_REGION
                      )
 
 BUCKET_NAME='speed_testing_bucket_only_delet_it'
