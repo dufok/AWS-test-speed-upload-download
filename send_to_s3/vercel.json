@@ -1,6 +1,6 @@
 {
   "version": 2,
   "builds": [
-    { "src": "send_data_to_aws.py", "use": "@vercel/python" }
+    { "src": "send_data_to_aws.py", "use": "@vercel/python3" }
   ]
 }
