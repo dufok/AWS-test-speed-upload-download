@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request
 import boto3
-from botocore.exeptions import NoCredentialsError
+from botocore.exceptions import NoCredentialsError
 import requests
 import mimetypes
 import time
