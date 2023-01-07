@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 s3 = boto3.client('s3',
                     aws_access_key_id=os.environ['S3_ACCESS_KEY'],
                     aws_secret_access_key=os.environ['S3_SECRET_KEY'],
-                   # aws_session_token=keys.AWS_SESSION_TOKEN
+                    endpoint_url=os.environ['S3_END_POINT']
                      )
 
 BUCKET_NAME='speedtestingbucketonlydeletit'
