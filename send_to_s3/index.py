@@ -36,7 +36,7 @@ def upload():
                 start_time = time.time()
             
                 # cheak file size
-                file_size = os.path.getsize(temp_path)
+                file_size = os.path.getsize(img)
               
                 # Perform the file upload
                 filename = secure_filename(img.filename)
