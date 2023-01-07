@@ -35,8 +35,6 @@ def upload():
                 # Start the timer
                 start_time = time.time()
             
-                # cheak file size
-                file_size = os.path.getsize(img)
               
                 # Perform the file upload
                 filename = secure_filename(img.filename)
@@ -86,7 +84,7 @@ def upload():
                 msg = "Upload Done !"
                 time_msg_aws = elapsed_time_aws
                 time_msg_storj = elapsed_time_storj
-    return render_template("file_upload_to_s3.html",msg =msg, time_msg_aws =time_msg_aws, time_msg_storj =time_msg_storj, file_size =file_size)
+    return render_template("file_upload_to_s3.html",msg =msg, time_msg_aws =time_msg_aws, time_msg_storj =time_msg_storj)
 
 
 
