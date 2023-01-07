@@ -50,7 +50,7 @@ def upload():
                 # Display the elapsed time
                 print("Elapsed time:", elapsed_time)
                 
-                msg = "Upload Done ! Elapsed time:", elapsed_time
+                msg = "Upload Done ! Elapsed time: "elapsed_time
 
     return render_template("file_upload_to_s3.html",msg =msg)
 
