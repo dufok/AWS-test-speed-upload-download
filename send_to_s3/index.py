@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, request
 import boto3
+import tempfile
 import time
 import os
 
@@ -29,12 +30,18 @@ def upload():
             
                 # Perform the file upload
                 filename = secure_filename(img.filename)
-                img.save(filename)
-                s3.upload_file(
-                    Bucket = BUCKET_NAME,
-                    Filename=filename,
-                    Key = filename
-                )
+                # Save the file to a temporary location
+                with tempfile.TemporaryDirectory() as temp_dir:
+                    temp_path = os.path.join(temp_dir, filename)
+                    img.save(temp_path)
+                    # Open the file in binary mode
+                    with open(temp_path, 'rb') as file:
+                        # Use the upload_fileobj method to safely upload the file
+                        s3.upload_fileobj(
+                            Fileobj=file,
+                            Bucket=BUCKET_NAME,
+                            Key=filename
+                        )
                 
                 # Stop the timer and calculate the elapsed time
                 end_time = time.time()
@@ -43,10 +50,10 @@ def upload():
                 # Display the elapsed time
                 print("Elapsed time:", elapsed_time)
                 
-                msg = "Upload Done ! Elapsed time:", elapsed_time
+                msg = "Upload Done !"
+                time_msg = ("Elapsed time (sec):", elapsed_time)
+    return render_template("file_upload_to_s3.html",msg =msg, time_msg =time_msg)
 
-    return render_template("file_upload_to_s3.html",msg =msg)
 
 
 if __name__ == "__main__":app.run(debug=True)
-  #app.run(host='0.0.0.0', port=80)
