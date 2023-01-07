@@ -33,7 +33,7 @@ def upload():
         img = request.files['file']
         if img:
                 # Start the timer
-                start_time = time.time()
+                start_time_1 = time.time()
             
               
                 # Perform the file upload
@@ -52,11 +52,11 @@ def upload():
                         )
                 
                 # Stop the timer and calculate the elapsed time
-                end_time = time.time()
-                elapsed_time_aws = end_time - start_time
+                end_time_1 = time.time()
+                elapsed_time_aws = end_time_1 - start_time_1
                 
                 # Start the timer
-                start_time = time.time()
+                start_time_2 = time.time()
             
                 # Perform the file upload
                 filename = secure_filename(img.filename)
@@ -74,8 +74,8 @@ def upload():
                         )
                 
                 # Stop the timer and calculate the elapsed time
-                end_time = time.time()
-                elapsed_time_storj = end_time - start_time
+                end_time_2 = time.time()
+                elapsed_time_storj = end_time_2 - start_time_2
                 
                 
                 
