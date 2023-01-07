@@ -15,6 +15,12 @@ s3 = boto3.client('s3',
                   #process.env.S3_REGION || 'eu-west-1'
                      )
 
+storj = boto3.client('s3',
+                    aws_access_key_id=os.environ['STORJ_ACCESS_KEY'],
+                    aws_secret_access_key=os.environ['STORJ_SECRET_KEY'],
+                    endpoint_url=os.environ['STORJ_END_POINT']
+                     )
+
 BUCKET_NAME='speedtestingbucketonlydeletit'
 
 @app.route('/')  
@@ -48,20 +54,6 @@ def upload():
                 end_time = time.time()
                 elapsed_time_aws = end_time - start_time
                 
-
-s3 = boto3.client('s3',
-                    aws_access_key_id=os.environ['STORJ_ACCESS_KEY'],
-                    aws_secret_access_key=os.environ['STORJ_SECRET_KEY'],
-                    endpoint_url=os.environ['STORJ_END_POINT']
-                     )
-
-BUCKET_NAME='speedtestingbucketonlydeletit'
-
-@app.route('/upload',methods=['post'])
-def upload():
-    if request.method == 'POST':
-        img = request.files['file']
-        if img:
                 # Start the timer
                 start_time = time.time()
             
@@ -74,7 +66,7 @@ def upload():
                     # Open the file in binary mode
                     with open(temp_path, 'rb') as file:
                         # Use the upload_fileobj method to safely upload the file
-                        s3.upload_fileobj(
+                        storj.upload_fileobj(
                             Fileobj=file,
                             Bucket=BUCKET_NAME,
                             Key=filename
