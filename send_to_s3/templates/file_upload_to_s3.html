@@ -42,7 +42,7 @@
      
     <div class="card-body ">
       <form action="/upload" method="post" enctype="multipart/form-data">
-      <p class="card-text">Choose a file to upload it to AWS S3</p>
+      <p class="card-text">Choose a file to upload it to storajs</p>
         <input type="file" name="file" value="file">
         <hr>
       <input type="submit" name="upload" value="Upload" class="btn btn-success">
@@ -50,11 +50,12 @@
     </div>
     
     <div class="card" style="width:400px">
-      <p class="card-text">Choose a file to upload it to AWS S3</p>
+      <p class="card-text">Status Upload:</p>
       {{msg}}
-      <p class="card-text">Choose a file to upload it to AWS S3</p>
-      {{time_msg}}
-      
+      <p class="card-text">Elapsed time when upload it to AWS S3:</p>
+      {{time_msg_aws}}
+      <p class="card-text">Elapsed time when upload it to Storj:</p>
+      {{time_msg_storj}}
     </div>
   </div>
   <br>
