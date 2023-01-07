@@ -14,10 +14,11 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <!-- CSS Files -->
-  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS -->
   <link href="static/demo/demo.css" rel="stylesheet" />
+  
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,8 +47,14 @@
         <hr>
       <input type="submit" name="upload" value="Upload" class="btn btn-success">
       </form>
-      {{msg}},
+    </div>
+    
+    <div class="card" style="width:400px">
+      <p class="card-text">Choose a file to upload it to AWS S3</p>
+      {{msg}}
+      <p class="card-text">Choose a file to upload it to AWS S3</p>
       {{time_msg}}
+      
     </div>
   </div>
   <br>
